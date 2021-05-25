@@ -1,4 +1,12 @@
 $(function () {
+	var widthScreen = $(window).width();
+	var widthMain = $('.main').width();
+	if (widthScreen < widthMain) {
+		$('body').removeClass('center');
+	} else {
+		$('body').addClass('center');
+	}
+
 	$('.menu__burger, .menu__list a').on('click', function () {
 		$('.menu').toggleClass('menu--active');
 		$('.menu__burger').toggleClass('menu__burger--active');

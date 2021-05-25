@@ -29,17 +29,20 @@ body {
    color: $white;
    @include Gilroy(400);
    font-size: 16px;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-
-	@include xl {
-		display: block;
-	}
 }
 
-main{
-	position: relative;
+.center {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+
+   @include xl {
+      display: block;
+   }
+}
+
+main {
+   position: relative;
 }
 
 .container {

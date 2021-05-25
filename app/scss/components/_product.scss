@@ -205,7 +205,7 @@
       fill: $international-orange-500;
       transition: transform 0.5s, fill 0.3s;
       display: none;
-      z-index: 20;
+      z-index: 10;
 
       @include xl {
          display: block;

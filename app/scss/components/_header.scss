@@ -281,10 +281,6 @@
       letter-spacing: 5px;
       transition: background-color 0.3s, box-shadow 0.3s;
 
-      @include lg {
-         padding: 13px;
-      }
-
       &:not(:last-child) {
          margin-bottom: 15px;
       }
@@ -294,6 +290,12 @@
       outline: transparent;
       color: $white;
       transition: color 0.3s;
+
+      @include lg {
+			display: block;
+			width: 100%;
+         padding: 13px;
+      }
 
       &:focus,
       &:hover {

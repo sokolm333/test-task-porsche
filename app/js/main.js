@@ -55,6 +55,9 @@ $(function () {
 
 	var scroll = window.innerHeight;
 	$('.product__more').on('click', function (window) {
+		$('.menu').removeClass('menu--active');
+		$('.menu__burger').removeClass('menu__burger--active');
+		$('.menu__list').removeClass('menu__list--active');
 		if ($('.product__more').hasClass('product__more--active')) {
 			$('.product__more').removeClass('product__more--active');
 			$('.product__content').slideUp('slow');
@@ -64,7 +67,7 @@ $(function () {
 			$('body,html').animate({
 				scrollTop: scroll
 			}, 500);
-		}
+		};
 	});
 
 	$('.demo-slider').slick({

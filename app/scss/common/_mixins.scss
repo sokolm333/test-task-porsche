@@ -1,0 +1,17 @@
+// I need this mixin to test myself. I will delete it when I finish working with the project
+@mixin wowborder ($f) {
+   border: 3px solid ($f);
+}
+
+@mixin Gilroy($Gilroy-weight) {
+   font-family: "Gilroy", sans-serif;
+   font-weight: $Gilroy-weight;
+}
+
+@function max($numbers...) {
+   @return m#{a}x(#{$numbers});
+}
+
+@function min($numbers...) {
+   @return m#{i}n(#{$numbers});
+}

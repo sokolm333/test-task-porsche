@@ -1,0 +1,309 @@
+.header {
+   padding-top: 40px;
+   position: absolute;
+   width: 100%;
+   z-index: 20;
+
+   @include lg {
+      padding-top: 30px;
+   }
+
+   &__inner {
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @include rwd(1400) {
+         padding: 0 40px;
+      }
+
+      @include lg {
+         flex-direction: column;
+      }
+
+      @include md {
+         padding: 0 30px;
+      }
+
+      @include sm {
+         padding: 0 15px;
+      }
+   }
+
+   &__wrap {
+      display: flex;
+      align-items: center;
+   }
+
+   &__wrap--child {
+      &:not(:last-child) {
+         margin-right: 45px;
+      }
+   }
+
+   &__logo {
+      padding-top: 20px;
+
+      @include lg {
+         margin-bottom: 3px;
+      }
+   }
+
+   &__search {
+      text-align: right;
+      position: relative;
+      top: -10px;
+      width: 250px;
+
+      @include lg {
+         display: none;
+      }
+   }
+
+   &__input {
+      width: 0;
+      background-color: transparent;
+      border: 3px solid transparent;
+      font-weight: 700;
+      padding: 0;
+      color: $white;
+      outline: transparent;
+      transition: box-shadow 0.3s, border-color 0.5s, width 0.5s, background-color 0.3s;
+
+      &::placeholder {
+         text-transform: uppercase;
+         letter-spacing: 5px;
+         color: $white;
+         opacity: 0;
+         transition: opacity 0.3s;
+      }
+
+      &--active {
+         width: 100%;
+         border-color: $international-orange-500;
+         padding: 10px 60px 10px 10px;
+         background-color: $international-orange-500-tr;
+
+         &::placeholder {
+            opacity: 0.5;
+         }
+      }
+
+      &--empty {
+         border-color: $red-500;
+         box-shadow: 0px 0px 30px 0px $red-500;
+         background-color: $red-500-tr;
+
+         &::placeholder {
+            color: $white;
+            opacity: 1;
+         }
+      }
+
+      &:focus,
+      &:hover {
+         box-shadow: 0px 0px 30px 0px $international-orange-500-tr2;
+      }
+
+      &:hover {
+         &::placeholder {
+            opacity: 1;
+         }
+      }
+   }
+
+   &__search-button {
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      fill: $international-orange-500;
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      border: none;
+      display: flex;
+      align-items: center;
+      z-index: 1;
+      transition: fill 0.3s, transform 0.2s;
+      outline: transparent;
+
+      &:focus,
+      &:hover {
+         transform: translateY(-50%) scale(1.3);
+      }
+
+      &:active {
+         fill: $white;
+         transform: translateY(-50%) scale(0.9);
+      }
+   }
+}
+
+.menu {
+   position: relative;
+   font-weight: 700;
+
+   &__burger {
+      overflow: visible;
+      display: block;
+      background-color: transparent;
+      margin: 0;
+      padding: 0;
+      width: 35px;
+      height: 50px;
+      font-size: 0;
+      text-indent: -9999px;
+      border: none;
+      cursor: pointer;
+      z-index: 21;
+
+      &:focus {
+         outline: transparent;
+      }
+
+      & span {
+         display: block;
+         position: absolute;
+         top: 42%;
+         left: 0;
+         right: 0;
+         height: 0;
+
+         &::before,
+         &::after {
+            position: absolute;
+            content: "";
+            display: block;
+            right: 0;
+            height: 2px;
+            background-color: $international-orange-500;
+            transition-duration: 0.5s, 0.5s;
+            transition-delay: 0.5s, 0;
+
+            @include lg {
+               right: -5px;
+               height: 4px;
+            }
+         }
+
+         &::before {
+            width: 130%;
+            top: -10px;
+            transition-property: top, transform, box-shadow, background-color, width;
+         }
+
+         &::after {
+            width: 100%;
+            top: 0;
+            transition-property: top, transform, box-shadow, background-color;
+
+            @include lg {
+               width: 130%;
+               top: 3px;
+            }
+         }
+      }
+
+      &--active {
+
+         span {
+            background: transparent;
+
+            &::before {
+               width: 100%;
+               top: 0;
+               transform: rotate(45deg);
+               background-color: $white;
+
+               @include lg {
+                  width: 130%;
+                  top: 2px;
+                  background-color: $black;
+               }
+            }
+
+            &::after {
+               bottom: 0;
+               transform: rotate(-45deg);
+               background-color: $white;
+
+               @include lg {
+                  background-color: $black;
+               }
+            }
+
+            &::before,
+            &::after {
+               transition-delay: 0, 0.5s;
+               box-shadow: 0px 0px 15px 5px $white-tr;
+
+               @include lg {
+                  box-shadow: 0px 0px 15px 0px $black-tr;
+               }
+            }
+         }
+      }
+   }
+
+   &__list {
+      position: absolute;
+      text-align: right;
+      top: 65px;
+      right: -5px;
+      opacity: 0;
+      transition: opacity 0.5s;
+      z-index: 20;
+
+      @include lg {
+         text-align: center;
+         width: 100vw;
+         right: 0;
+         left: 50%;
+         transform: translateX(-50%);
+         // overflow: scroll;
+         // max-height: calc(100vh - 140px);
+      }
+
+      &--active {
+         .menu__item {
+            @include lg {
+               background-color: $black-tr;
+               box-shadow: 0px 0px 10px 3px $black-tr;
+            }
+         }
+      }
+   }
+
+   &__item {
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      transition: background-color 0.3s, box-shadow 0.3s;
+
+      @include lg {
+         padding: 13px;
+      }
+
+      &:not(:last-child) {
+         margin-bottom: 15px;
+      }
+   }
+
+   &__link {
+      outline: transparent;
+      color: $white;
+      transition: color 0.3s;
+
+      &:focus,
+      &:hover {
+         color: $international-orange-500;
+      }
+   }
+
+   &--active {
+      .menu__list {
+         opacity: 1;
+      }
+   }
+}

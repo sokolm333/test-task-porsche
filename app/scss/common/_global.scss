@@ -1,0 +1,116 @@
+.hide {
+   overflow: hidden;
+}
+
+html,
+body {
+   ::-webkit-scrollbar {
+      width: 5px;
+      height: 3px;
+   }
+
+   ::-webkit-scrollbar-button {
+      display: none;
+   }
+
+   ::-webkit-scrollbar-track-piece {
+      background-color: $white;
+   }
+
+   ::-webkit-scrollbar-thumb {
+      height: 40px;
+      background-color: $international-orange-500;
+      border-radius: 3px;
+   }
+}
+
+body {
+   background-color: $cod-gray-200;
+   color: $white;
+   @include Gilroy(400);
+   font-size: 16px;
+}
+
+.container {
+   margin: 0 auto;
+   max-width: 1680px;
+   // max-width: 1710px;
+   // padding: 0 15px;
+}
+
+.fancybox {
+   &-inner {
+      margin: 0 auto;
+      max-width: 1680px;
+   }
+
+   &-button {
+      width: 80px;
+      height: 80px;
+   }
+}
+
+.logo {
+   z-index: 20;
+
+   &__img {
+      max-width: 415px;
+      max-height: 55px;
+
+      @include rwd(440) {
+         max-width: 100%;
+      }
+   }
+}
+
+.btn {
+   display: inline-block;
+   padding: 25px 70px;
+   margin: 0;
+   border: 3px solid $international-orange-500;
+   background-color: $international-orange-500-tr;
+   box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.25);
+   text-transform: uppercase;
+   color: $white;
+   line-height: 1;
+   font-size: 12px;
+   font-weight: 700;
+   letter-spacing: 10px;
+   transition: box-shadow 0.3s, border-color 0.3s, background-color 0.2s;
+
+   @include xl {
+      font-size: 16px;
+   }
+
+   @include sm {
+      padding: 20px 30px;
+   }
+
+   &:focus {
+      outline: transparent;
+      border-color: $white;
+   }
+
+   &:hover {
+      box-shadow: 0px 0px 50px 0px $international-orange-500-tr2;
+   }
+
+   &:active {
+      border-color: $white;
+      box-shadow: 0px 0px 50px 0px $white;
+      background-color: $white-tr;
+   }
+}
+
+.visually-hidden {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   margin: -1px;
+   border: 0;
+   padding: 0;
+   white-space: nowrap;
+   clip-path: inset(100%);
+   clip: rect(0 0 0 0);
+   overflow: hidden;
+}
